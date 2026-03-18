@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Napkin Studio | Draft. Build. Own.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0D1A3B;
+            --gold: #BEA268;
+            --paper: #FEFBF1;
+            --white: #ffffff;
+            --border: rgba(13, 26, 59, 0.15);
+            --news-bg: #f2efe6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--paper);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .sketch-font {
+            font-family: 'Permanent Marker', cursive;
+            color: var(--gold);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding-top: 10px;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .logo {
+            padding-top: 25px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem 0 0rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            color: var(--navy);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--navy);
+            color: var(--paper);
+            padding: 1.2rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: var(--gold);
+            transform: translateY(-2px);
+            color: var(--navy);
+        }
+
+        /* Product Section */
+        #products {
+            padding: 4rem 0 6rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 8px 8px 0px var(--gold);
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--gold);
+        }
+
+        .product-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .news-section {
+            background: var(--news-bg);
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 4rem 0;
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid var(--navy);
+            padding-bottom: 1rem;
+        }
+
+        .news-header h2 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .article {
+            text-decoration: none;
+            color: var(--navy);
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: opacity 0.2s;
+            align-items: flex-start;
+        }
+
+        .article:first-child {
+            padding-top: 0;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article:hover {
+            opacity: 0.8;
+        }
+
+        .article-img-wrapper {
+            flex-shrink: 0;
+            width: 140px;
+            height: 100px;
+            background: var(--white);
+            border: 1px solid var(--navy);
+            transform: rotate(-2deg);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .article-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            flex-grow: 1;
+        }
+
+        .article-category {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .article h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .article p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-ad {
+            background: var(--white);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .sidebar-img {
+            width: 100%;
+            height: 180px;
+            background: var(--news-bg);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .sidebar-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .highlight {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        .highlight::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: var(--gold);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @media (max-width: 850px) {
+            .news-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+            .products-grid { grid-template-columns: 1fr; }
+            .article { flex-direction: column; gap: 1rem; }
+            .article-img-wrapper { width: 100%; height: 160px; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <div class="logo">Strategic Napkin Studio</div>
+    </header>
+
+    <main>
+
+        <section class="hero container">
+            <h1>The best ideas start on a <span class="sketch-font">napkin.</span></h1>
+            <p>Every great brand begins with a "lightning strike" moment. We give you the digital tools to take that messy sketch and execute it with absolute precision.</p>
+        </section>
+
+
+        <section id="products" class="container">
+            <div class="section-title">
+                <h2 class="highlight">The Studio Collection</h2>
+            </div>
+            <div class="products-grid">
+
+                <div class="product-card">
+                    <div>
+                        <span class="sketch-font" style="font-size: 1.2rem;">Digital Media Starter Kit</span>
+                        <h3>Social Media & Digital Launch Kit</h3>
+                        <span class="price">$9.99</span>
+                        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 650px; padding: 25px; background-color: #ffffff; color: #333333; line-height: 1.6;">
+
+                        <p style="margin-bottom: 15px;">Ready to elevate your online presence and launch your next digital product without the burnout?</p>
+
+                        <p style="margin-bottom: 15px;">Whether you're a creator, coach, or small business owner, staring at a blank screen is the fastest way to kill your momentum.</p>
+
+                        <p style="margin-bottom: 25px;">The <strong>Social Media & Digital Launch Kit</strong> gives you the templates and strategies you need to help show up consistently and sell confidently as you begin your digital journey!</p>
+
+                        <h3 style="color: #111111; font-size: 18px; border-bottom: 2px solid #f4f4f4; padding-bottom: 8px; margin-bottom: 15px;">What’s Inside the Kit:</h3>
+
+                            <ul style="padding-left: 20px; margin-bottom: 25px;">
+                                <li style="margin-bottom: 12px;"><strong>20 Premade Instagram Quote Templates:</strong> Ready to go Canva templates to elevate your feed right from the start!</li>
+                                <li style="margin-bottom: 12px;"><strong>200 Inspirational Quotes (CSV File):</strong> Never run out of things to say. Use this database to bulk-create months of highly engaging, shareable content in just a few clicks.</li>
+                                <li style="margin-bottom: 12px;"><strong>Canva Social Media Templates Guide:</strong> A quick-start manual to help you understand the Canva templates process.</li>
+                                <li style="margin-bottom: 12px;"><strong>Lean Digital Product Launch Guide:</strong> This step-by-step roadmap shows you how to get started with digital products quickly!</li>
+                            </ul>
+
+                        <div style="background-color: #f9fafb; border-left: 3px solid #BEA268; padding: 15px 20px; border-radius: 4px;">
+                            <p style="margin: 0 0 10px 0; font-weight: bold; font-size: 16px; color: #111111;">Stop wasting hours on content creation and launch prep. Get the shortcut to a solid feed and a successful launch today!</p>
+                        </div>
+
+                    </div>
+                    </div>
+                    <a href="https://payhip.com/b/S1WVP" class="cta-button" style="margin-top: 2rem;">Get the Blueprint</a>
+                </div>
+
+                <div class="product-card">
+                    <div>
+                        <span class="sketch-font" style="font-size: 1.2rem;">A.I. Power Pack</span>
+                        <h3>Creators A.I. & Niche Guides Pack</h3>
+                        <span class="price">$9.99</span>
+                        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 650px; padding: 25px; background-color: #ffffff; color: #333333; line-height: 1.6;">
+
+                        <p style="margin-bottom: 15px;">Feeling overwhelmed by the AI boom and unsure how to carve out your own profitable corner of the internet?</p>
+
+                        <p style="margin-bottom: 25px;">Instead of guessing what works, this comprehensive power pack gives you the exact frameworks to uncover high-demand niches, leverage AI to do the heavy lifting, and build an income stream around what you actually do best.</p>
+
+                        <h3 style="color: #111111; font-size: 18px; border-bottom: 2px solid #f4f4f4; padding-bottom: 8px; margin-bottom: 15px;">What’s Inside the Power Pack:</h3>
+
+                            <ul style="padding-left: 20px; margin-bottom: 25px;">
+                                <li style="margin-bottom: 12px;"><strong>What Would I Do Well At Worksheet:</strong> Uncover your unique strengths and align them with realistic, profitable market opportunities.</li>
+                                <li style="margin-bottom: 12px;"><strong>How To Find Niches & High Demand Areas:</strong> Learn how to spot hungry markets and untapped trends.</li>
+                                <li style="margin-bottom: 12px;"><strong>Niche Research Tracker:</strong> Organize your market research and make confident, data-driven decisions.</li>
+                                <li style="margin-bottom: 12px;"><strong>AI Prompt Bank:</strong> Proven prompts to get high-quality results from A.I.</li>
+                                <li style="margin-bottom: 12px;"><strong>How To Learn Skills Using AI:</strong> Cut your learning curve in half. Discover how to turn AI into your personal 24/7 tutor to master new creator skills.</li>
+                                <li style="margin-bottom: 12px;"><strong>Top Tools Guide for Creators, Builders & Sellers:</strong> Get a curated list of the essential tech stack you actually need to build and sell.</li>
+                                <li style="margin-bottom: 12px;"><strong>AI Side-by-Side Income Guide:</strong> Learn how to work with AI to build, launch, and scale income streams.</li>
+                            </ul>
+
+                        <div style="background-color: #f9fafb; border-left: 3px solid #BEA268; padding: 15px 20px; border-radius: 4px;">
+                            <p style="margin: 0; font-weight: bold; font-size: 16px; color: #111111;">Stop spinning your wheels and start building smarter. Grab the power pack today and let AI help you build your creator business faster!</p>
+                        </div>
+
+                    </div>
+                    </div>
+                    <a href="https://payhip.com/b/w8ND7" class="cta-button" style="margin-top: 2rem;">Access the Vault</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="news-section">
+            <div class="container">
+                <div class="news-header">
+                    <h2>Studio Dispatch</h2>
+                    <div class="news-date">EXTERNAL RESOURCES &bull; <script>document.write(new Date().toLocaleDateString('en-US', {month: 'long', year: 'numeric'}))</script></div>
+                </div>
+                
+                <div class="news-grid">
+                    <div class="news-feed">
+ 
+                        <a href="YOUR_AFFILIATE_LINK_1" class="article">
+                            <div class="article-img-wrapper">
+                                <img src="/api/placeholder/140/100" alt="Article Visual" onerror="this.style.display='none'">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-category">Tools & Tech</span>
+                                <h4>The Infrastructure of High-Scale Brands</h4>
+                                <p>Discover the automation engine we recommend for handling digital product delivery at scale without the boardroom overhead.</p>
+                            </div>
+                        </a>
+
+
+                        <a href="YOUR_AFFILIATE_LINK_2" class="article">
+                            <div class="article-img-wrapper" style="transform: rotate(2deg);">
+                                <img src="/api/placeholder/140/100" alt="Article Visual" onerror="this.style.display='none'">
+                            </div>
+                            <div class="article-content">
+                                <span class="article-category">Growth Strategies</span>
+                                <h4>Mastering the Modern Feed Architecture</h4>
+                                <p>An external deep-dive into why 90% of content fails and the one software platform that solves distribution fatigue.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="news-sidebar">
+                        <div class="sidebar-ad">
+                            <div class="sidebar-img">
+                                <img src="/api/placeholder/300/180" alt="Spotlight Image" onerror="this.style.display='none'">
+                            </div>
+                            <span class="article-category">Sponsored Advertisment</span>
+                            <h5 style="font-size: 1.1rem; margin-bottom: 1rem;">Join the Network</h5>
+                            <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Access a high-level program that brings the same Strategic Napkin energy!</p>
+                            <a href="YOUR_AFFILIATE_LINK_3" style="color: var(--gold); font-weight: 800; text-decoration: none; font-size: 0.8rem; text-transform: uppercase;">Apply Now &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <section style="text-align: center; padding: 4rem 0 2rem;">
+                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Draft the vision. Own the feed.</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto;">The "lightning strike" is only the beginning. Execution is where you win.</p>
+                <a href="https://payhip.com/Strategicnapkinstudio" class="cta-button" style="background: var(--gold); color: var(--navy);">Visit Our Store Page</a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Strategic Napkin Studio.</p>
+            <p style="margin-top: 0.5rem; letter-spacing: 2px; opacity: 0.5;">DRAFT &bull; BUILD &bull; OWN</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
