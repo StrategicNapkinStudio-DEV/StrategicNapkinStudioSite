@@ -267,37 +267,101 @@
         text-align: left;
         margin-bottom: 12px;
         display: block;
-        }
+    }
 
-        .ad-img-container {
+    .ad-animation-container {
         border-radius: 8px;
-        overflow: hidden;
         margin-bottom: 16px;
-        }
+        background-color: #15151a;
+        height: 180px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
 
-        .ad-img-container img {
+    .spinner-core {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        z-index: 1;
+    }
+
+    .spinner-ring {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        z-index: 2;
+        animation: orbit 8s linear infinite; 
+    }
+
+    .orbit-heart {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        top: 50%;
+        margin-top: -11px;
+        animation: counter-orbit 8s linear infinite;
+    }
+
+    .heart-svg {
         width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        }
+        height: 100%;
+        fill: currentColor;
+    }
 
-        .ad-headline {
+
+    .heart-red {
+        color: #f43f5e;
+        filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.6));
+    }
+
+    .heart-blue {
+        color: #38bdf8;
+        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+    }
+
+
+    .heart-left { left: -11px; }
+    .heart-right { right: -11px; }
+
+
+    @keyframes orbit {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes counter-orbit {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-360deg); }
+    }
+
+    .ad-headline {
         font-size: 1.15rem;
         font-weight: 800;
         color: #1a1a1a;
         margin: 0 0 8px 0;
         line-height: 1.3;
-        }
+    }
 
-        .ad-body {
+    .ad-body {
         font-size: 0.85rem;
         color: #555;
         margin: 0 0 20px 0;
         line-height: 1.5;
-        }
+    }
 
-        .ad-cta-btn {
+    .ad-cta-btn {
         display: block;
         width: 100%;
         box-sizing: border-box;
@@ -310,11 +374,11 @@
         text-transform: uppercase;
         border-radius: 8px;
         transition: background-color 0.2s ease;
-        }
+    }
 
-        .ad-cta-btn:hover {
+    .ad-cta-btn:hover {
         background-color: #333;
-        }
+    }
 
         .sidebar-ad-card {
         background-color: #ffffff;
@@ -324,15 +388,15 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         font-family: system-ui, -apple-system, sans-serif;
         text-align: center;
-        max-width: 300px;
+        max-width: 300px; 
         margin: 0 auto;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    }
 
-        .sidebar-ad-card:hover {
+    .sidebar-ad-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
+    }
 
         .sidebar-img {
             width: 100%;
@@ -492,7 +556,7 @@
                 <div class="news-grid">
                     <div class="news-feed">
  
-                        <a href="YOUR_AFFILIATE_LINK_1" class="article">
+                        <a href="LINK" class="article">
                             <div class="article-img-wrapper">
                                 <img src="/api/placeholder/140/100" alt="Article Visual" onerror="this.style.display='none'">
                             </div>
@@ -504,7 +568,7 @@
                         </a>
 
 
-                        <a href="YOUR_AFFILIATE_LINK_2" class="article">
+                        <a href="LINK" class="article">
                             <div class="article-img-wrapper" style="transform: rotate(2deg);">
                                 <img src="/api/placeholder/140/100" alt="Article Visual" onerror="this.style.display='none'">
                             </div>
@@ -519,18 +583,26 @@
                    <div class="news-sidebar">
                     <div class="sidebar-ad-card">
                      <span class="ad-tag">Sponsored Ad</span>      
-                       <div class="ad-img-container">
-                        <img 
-                            src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/HeartBadgeAD.png" 
-                            alt="HeartBadge Pass" 
-                            onerror="this.style.display='none'">
-                       </div>
-        
+                       <div class="ad-animation-container">
+                        <div class="spinner-core">
+                            <svg class="heart-svg heart-red" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            <svg class="heart-svg heart-blue" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+            
+                        <div class="spinner-ring">
+                            <div class="orbit-heart heart-left heart-blue">
+                                <svg class="heart-svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            </div>
+                        <div class="orbit-heart heart-right heart-red">
+                            <svg class="heart-svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                    </div>
+                </div>
                             <h5 class="ad-headline">One Badge.<br>A Lifetime of entertainment.</h5>
         
                             <p class="ad-body">HeartBadge is your pass to unforgettable live and digital moments.</p>
         
-                            <a href="YOUR_AFFILIATE_LINK_3" class="ad-cta-btn">Get Yours Today &rarr;</a>
+                            <a href="LINK" class="ad-cta-btn">Get Yours Today &rarr;</a>
                         </div>
                     </div>
                 </div>
