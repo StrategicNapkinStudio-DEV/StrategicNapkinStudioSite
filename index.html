@@ -233,6 +233,12 @@
             object-fit: cover;
         }
 
+        .article-content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
         .article-content {
             flex-grow: 1;
         }
@@ -617,13 +623,15 @@
                                   style="width: 100%; max-width: 143px; max-height: 104px;"
                                   onerror="this.style.display='none'">
                             </div>
-                                <span class="ad-tag" style=" font-size: 10px;">Photo: Grand Ole Opry, photos by Chris Hollo</span>
+                                <span class="ad-tag" style=" font-size: 8px;">Photo: Grand Ole Opry, photos by Chris Hollo</span>
                           </div>
-        
+                            <div class="article-content-container">
                             <div class="article-content">
                                 <span class="article-category">Music News</span>
                                 <h4>Jelly Roll Becomes Newest Grand Ole Opry Member After Emotional Induction</h4>
                                 <p>Jelly Roll is officially a member of the Grand Ole Opry! Read the article to find out more!</p>
+                            </div>
+                            <span class="ad-tag" style=" font-size: 8px;">Article by: By Kelly Fisher</span>
                             </div>
                         </a>
                     </div>
