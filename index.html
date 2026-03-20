@@ -421,6 +421,171 @@
             color: #111111;
         }
 
+        .services-section {
+            padding: 0 0 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .service-stack {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(190, 162, 104, 0.12), rgba(255, 255, 255, 0.95));
+            border: 2px solid var(--navy);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 8px 8px 0px var(--gold);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--gold);
+        }
+
+        .service-header-row {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-image-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .service-image-wrap {
+            width: 220px;
+            max-width: 220px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .service-image-placeholder {
+            color: var(--muted);
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.95rem;
+            padding: 1rem;
+            line-height: 1.4;
+        }
+
+        .service-image-caption {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .service-intro {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-width: 0;
+        }
+
+        .service-intro p {
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .service-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(190, 162, 104, 0.16);
+            color: var(--navy);
+            border: 1px solid rgba(190, 162, 104, 0.55);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .service-card h3 {
+            font-size: 1.9rem;
+        }
+
+        .service-price {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .service-card p {
+            color: var(--text-dark);
+        }
+
+        .service-list-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 2rem;
+            margin-top: 0.25rem;
+        }
+
+        .service-list {
+            padding-left: 1.2rem;
+            margin: 0;
+        }
+
+        .service-list li {
+            margin-bottom: 0.7rem;
+            color: var(--text-dark);
+        }
+
+        .service-note {
+            background-color: #f9fafb;
+            border-left: 3px solid var(--gold);
+            padding: 0.95rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #111111;
+        }
+
+        .service-meta {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+        }
+
+        .service-meta-card {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid var(--border);
+            padding: 0.85rem;
+        }
+
+        .service-meta-card strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: var(--navy);
+        }
+
         .why-section {
             padding: 0 0 4rem;
         }
@@ -809,12 +974,14 @@
         }
 
         @media (max-width: 900px) {
-            .value-strip-inner,
             .products-grid,
             .why-grid,
             .news-grid,
             .freebie-inner,
-            .freebie-list {
+            .freebie-list,
+            .services-grid,
+            .service-stack,
+            .service-meta {
                 grid-template-columns: 1fr;
             }
 
@@ -839,6 +1006,23 @@
             }
         }
 
+        @media (max-width: 700px) {
+            .service-header-row {
+                grid-template-columns: 1fr;
+            }
+
+            .service-image-wrap {
+                width: 100%;
+                max-width: none;
+                min-height: 180px;
+            }
+
+            .service-list-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
         @media (max-width: 640px) {
             .container {
                 padding: 0 1rem;
@@ -857,11 +1041,13 @@
                 font-size: 1rem;
             }
 
-            .product-card {
+            .product-card,
+            .service-card {
                 padding: 1rem;
             }
 
-            .product-card h3 {
+            .product-card h3,
+            .service-card h3 {
                 font-size: 1.6rem;
             }
 
@@ -888,6 +1074,7 @@
             <nav class="top-nav">
                 <a href="#free-guide">Free Guide</a>
                 <a href="#products">Products</a>
+                <a href="#services">Services</a>
                 <a href="#studio-dispatch">Studio Dispatch</a>
                 <a href="https://payhip.com/Strategicnapkinstudio" target="_blank" rel="noopener noreferrer">Store</a>
             </nav>
@@ -979,12 +1166,12 @@
                     <div class="product-card">
                         <div class="product">
                             <div class="product-image-wrap">
-                            <img
-                                src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Package%201.png"
-                                alt="The Social Media &amp; Digital Launch Kit product graphic"
-                                class="product-image"
-                                loading="lazy"
-                                onerror="this.style.display='none'">
+                                <img
+                                    src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Package%201.png"
+                                    alt="The Social Media &amp; Digital Launch Kit product graphic"
+                                    class="product-image"
+                                    loading="lazy"
+                                    onerror="this.style.display='none'">
                             </div>
                             <div class="product-badge">Best for beginners</div>
 
@@ -1017,12 +1204,12 @@
                     <div class="product-card">
                         <div class="product">
                             <div class="product-image-wrap">
-                            <img
-                                src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Package%202.png"
-                                alt="Creators A.I. &amp; Niche Guides Pack product graphic"
-                                class="product-image"
-                                loading="lazy"
-                                onerror="this.style.display='none'">
+                                <img
+                                    src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Package%202.png"
+                                    alt="Creators A.I. &amp; Niche Guides Pack product graphic"
+                                    class="product-image"
+                                    loading="lazy"
+                                    onerror="this.style.display='none'">
                             </div>
                             <div class="product-badge">Best for niche clarity</div>
 
@@ -1078,6 +1265,127 @@
             </div>
         </section>
 
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight">Simple Services</h2>
+                    <p class="section-subtitle">
+                        Need a clean online presence fast? We also offer simple starter services for creators, digital products, and small businesses.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header-row">
+                            <div class="service-image-column">
+                                <div class="service-image-wrap">
+                                    <div class="service-image-placeholder">
+                                        One-Page Starter Site<br>Preview Image
+                                    </div>
+                                </div>
+
+                                <div class="service-image-caption">
+                                    Great for creators, digital products, simple offers, and small businesses that need a clean online presence fast.
+                                </div>
+                            </div>
+
+                            <div class="service-intro">
+                                <div class="service-badge">Starter Pricing</div>
+                                <h3>One-Page Starter Site</h3>
+                                <span class="service-price">$99</span>
+
+                                <p>
+                                    A clean, mobile-friendly one-page website built in HTML/CSS and deployed on GitHub Pages.
+                                    Great for creators, digital products, and small businesses that need a simple online presence fast.
+                                </p>
+
+                                <div class="service-list-grid">
+                                    <ul class="service-list">
+                                        <li>1 custom one-page website</li>
+                                        <li>up to 6 sections</li>
+                                        <li>mobile responsive layout</li>
+                                    </ul>
+
+                                    <ul class="service-list">
+                                        <li>GitHub Pages deployment</li>
+                                        <li>3 revision rounds included</li>
+                                        <li>additional revisions: $25 each</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-meta">
+                            <div class="service-meta-card">
+                                <strong>Client provides</strong>
+                                final copy, images, links, and brand details
+                            </div>
+                            <div class="service-meta-card">
+                                <strong>Turnaround</strong>
+                                3–5 business days after all copy and images are received
+                            </div>
+                        </div>
+
+                        <div class="service-note">
+                            Major layout changes, new sections, copywriting, custom domains, backend features, or advanced animations are not included in this starter package.
+                        </div>
+
+                        <a href="REPLACE_WITH_STRIPE_STARTER_SITE_LINK" class="cta-button" target="_blank" rel="noopener noreferrer">
+                            Coming Soon
+                        </a>
+                    </div>
+
+                    <div class="service-stack">
+                        <div class="service-card">
+                            <div class="service-badge">Optional Add-On</div>
+                            <h3>Payhip Starter Setup</h3>
+                            <span class="service-price">$49</span>
+
+                            <p>
+                                A simple setup add-on for sellers who want help getting started with Payhip.
+                            </p>
+
+                            <ul class="service-list">
+                                <li>create or organize 1 product listing</li>
+                                <li>upload files</li>
+                                <li>basic product description formatting</li>
+                                <li>simple store or checkout guidance</li>
+                            </ul>
+
+                            <div class="service-note">
+                                Best for people who already have their files ready and want help getting one product set up cleanly.
+                            </div>
+
+                            <a href="REPLACE_WITH_STRIPE_PAYHIP_STARTER_LINK" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Coming Soon</a>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-badge">Quick Help</div>
+                            <h3>Payhip Help</h3>
+                            <span class="service-price">$25+</span>
+
+                            <p>
+                                For smaller Payhip tasks or quick help when you do not need a full setup package.
+                            </p>
+
+                            <ul class="service-list">
+                                <li>product upload help</li>
+                                <li>description cleanup</li>
+                                <li>store organization help</li>
+                                <li>basic setup questions</li>
+                            </ul>
+
+                            <div class="service-note">
+                                Smaller tasks start at $25. Larger or custom Payhip help can be quoted separately.
+                            </div>
+
+                            <a href="REPLACE_WITH_STRIPE_PAYHIP_HELP_LINK" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="final-cta">
             <div class="container">
                 <h2>Start free. Build smarter. Launch faster.</h2>
@@ -1086,7 +1394,7 @@
                 </p>
 
                 <div class="cta-row">
-                    <a href="REPLACE_WITH_FREEBIE_PAYHIP_LINK" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Free Guide</a>
+                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Free Guide</a>
                     <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
                     <a href="https://payhip.com/b/S1WVP" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer">Get the Launch Kit</a>
                 </div>
