@@ -28,6 +28,7 @@
             --news-bg: #f2efe6;
             --text-dark: #333333;
             --muted: rgba(13, 26, 59, 0.75);
+            --soft-gold: rgba(190, 162, 104, 0.12);
         }
 
         * {
@@ -169,6 +170,17 @@
             color: var(--paper);
         }
 
+        .cta-outline {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .cta-outline:hover {
+            background: var(--navy);
+            color: var(--paper);
+        }
+
         .value-strip {
             padding: 0 0 2.5rem;
         }
@@ -187,6 +199,102 @@
             text-align: center;
             font-weight: 800;
             border-radius: 10px;
+        }
+
+        .freebie-section {
+            padding: 0 0 4rem;
+        }
+
+        .freebie-card {
+            background: linear-gradient(135deg, rgba(190, 162, 104, 0.12), rgba(255, 255, 255, 0.95));
+            border: 2px solid var(--navy);
+            box-shadow: 8px 8px 0px var(--gold);
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .freebie-inner {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .freebie-image-wrap {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+        }
+
+        .freebie-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .freebie-badge {
+            display: inline-block;
+            margin-bottom: 0.9rem;
+            background: rgba(190, 162, 104, 0.18);
+            color: var(--navy);
+            border: 1px solid rgba(190, 162, 104, 0.55);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .freebie-content h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 0.8rem;
+        }
+
+        .freebie-content p {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .freebie-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.7rem 1.25rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .freebie-list li {
+            color: var(--text-dark);
+            font-weight: 600;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .freebie-list li::before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 900;
+        }
+
+        .freebie-note {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-left: 3px solid var(--gold);
+            padding: 0.9rem 1rem;
+            margin-bottom: 1.2rem;
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .freebie-cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         #products {
@@ -712,10 +820,12 @@
         }
 
         @media (max-width: 900px) {
+            .value-strip-inner,
             .products-grid,
             .why-grid,
-            .value-strip-inner,
-            .news-grid {
+            .news-grid,
+            .freebie-inner,
+            .freebie-list {
                 grid-template-columns: 1fr;
             }
 
@@ -766,12 +876,17 @@
                 font-size: 1.6rem;
             }
 
+            .freebie-card {
+                box-shadow: 6px 6px 0px var(--gold);
+            }
+
             .cta-button {
                 width: 100%;
             }
 
             .hero-cta-row,
-            .cta-row {
+            .cta-row,
+            .freebie-cta-row {
                 flex-direction: column;
             }
         }
@@ -782,6 +897,7 @@
     <header>
         <div class="container">
             <nav class="top-nav">
+                <a href="#free-guide">Free Guide</a>
                 <a href="#products">Products</a>
                 <a href="#studio-dispatch">Studio Dispatch</a>
                 <a href="https://payhip.com/Strategicnapkinstudio" target="_blank" rel="noopener noreferrer">Store</a>
@@ -803,12 +919,14 @@
                 <h1>The best ideas start on a <span class="sketch-font">napkin.</span></h1>
                 <p>
                     Strategic Napkin Studio gives creators and builders simple digital tools
-                    to find direction, build smarter, and launch faster.
+                    to find direction, build smarter, and launch faster. Start with the free guide,
+                    then move into the pack that fits where you are now.
                 </p>
 
                 <div class="hero-cta-row">
-                    <a href="https://payhip.com/b/w8ND7" class="cta-button" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
-                    <a href="https://payhip.com/b/S1WVP" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Get the Launch Kit</a>
+                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Free Guide</a>
+                    <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
+                    <a href="#products" class="cta-button cta-outline">See the Products</a>
                 </div>
             </div>
         </section>
@@ -819,6 +937,52 @@
                     <div class="value-chip">Beginner-Friendly</div>
                     <div class="value-chip">Instant Download</div>
                     <div class="value-chip">Low-Cost Starter Tools</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="freebie-section" id="free-guide">
+            <div class="container">
+                <div class="freebie-card">
+                    <div class="freebie-inner">
+                        <div class="freebie-image-wrap">
+                            <img
+                                src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/FreePackage.png"
+                                alt="25 High-Demand Niche Ideas for Beginners free guide"
+                                class="freebie-image"
+                                loading="lazy"
+                                onerror="this.style.display='none'">
+                        </div>
+
+                        <div class="freebie-content">
+                            <div class="freebie-badge">Free Starter Guide</div>
+
+                            <h2>25 High-Demand Niche Ideas for Beginners</h2>
+
+                            <p>
+                                Not sure what niche to choose? Start here. This free guide is built
+                                to help beginners spot stronger market directions without getting buried
+                                in research overwhelm.
+                            </p>
+
+                            <ul class="freebie-list">
+                                <li>25 beginner-friendly niche ideas</li>
+                                <li>simple first-offer directions</li>
+                                <li>why each niche has demand</li>
+                                <li>a niche scorecard to compare ideas</li>
+                            </ul>
+
+                            <div class="freebie-note">
+                                Grab the free guide first, then come back for the full AI &amp; Niche Pack
+                                if you want the deeper worksheets, trackers, prompts, and business-building guides.
+                            </div>
+
+                            <div class="freebie-cta-row">
+                                <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer">Download Free Guide</a>
+                                <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Get the Full AI Pack</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -837,7 +1001,7 @@
                         <div class="product">
                             <img
                                 src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Package%201.png"
-                                alt="The Social Media & Digital Launch Kit product graphic"
+                                alt="The Social Media &amp; Digital Launch Kit product graphic"
                                 class="product-image"
                                 loading="lazy"
                                 onerror="this.style.display='none'">
@@ -874,7 +1038,7 @@
                         <div class="product">
                             <img
                                 src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Package%202.png"
-                                alt="Creators A.I. & Niche Guides Pack product graphic"
+                                alt="Creators A.I. &amp; Niche Guides Pack product graphic"
                                 class="product-image"
                                 loading="lazy"
                                 onerror="this.style.display='none'">
@@ -935,14 +1099,15 @@
 
         <section class="final-cta">
             <div class="container">
-                <h2>Draft the vision. Own the feed.</h2>
+                <h2>Start free. Build smarter. Launch faster.</h2>
                 <p>
-                    Need niche clarity and AI guidance? Start there. Need ready-made content and launch help? Start there.
+                    Grab the free niche guide first, then move into the full AI &amp; Niche Pack or the Launch Kit when you are ready for the next step.
                 </p>
 
                 <div class="cta-row">
-                    <a href="https://payhip.com/b/w8ND7" class="cta-button" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
-                    <a href="https://payhip.com/b/S1WVP" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Get the Launch Kit</a>
+                    <a href="REPLACE_WITH_FREEBIE_PAYHIP_LINK" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Free Guide</a>
+                    <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
+                    <a href="https://payhip.com/b/S1WVP" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer">Get the Launch Kit</a>
                 </div>
 
                 <p class="store-link-wrap">
