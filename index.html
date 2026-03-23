@@ -10,9 +10,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-888XDVZYVW');
     </script>
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://strategicnapkinstudio-dev.github.io/StrategicNapkinStudioSite/">
     <meta property="og:title" content="Strategic Napkin Studio | Draft. Build. Own.">
@@ -28,6 +28,7 @@
     <style>
         :root {
             --navy: #0D1A3B;
+            --navy-2: #1d315f;
             --gold: #BEA268;
             --paper: #FEFBF1;
             --white: #ffffff;
@@ -36,6 +37,9 @@
             --text-dark: #333333;
             --muted: rgba(13, 26, 59, 0.75);
             --soft-gold: rgba(190, 162, 104, 0.12);
+            --soft-navy: rgba(13, 26, 59, 0.05);
+            --shadow-card: 8px 8px 0px var(--gold);
+            --shadow-card-hover: 12px 12px 0px var(--gold);
         }
 
         * {
@@ -65,8 +69,12 @@
             color: inherit;
         }
 
-        h1, h2, h3 {
-            line-height: 1.1;
+        button {
+            font: inherit;
+        }
+
+        h1, h2, h3, h4, h5 {
+            line-height: 1.12;
             font-weight: 800;
         }
 
@@ -80,6 +88,24 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 1.25rem;
+        }
+
+        .section-spacer {
+            padding: 0 0 4.25rem;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 0.9rem;
+            background: rgba(190, 162, 104, 0.16);
+            color: var(--navy);
+            border: 1px solid rgba(190, 162, 104, 0.55);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.45px;
+            text-transform: uppercase;
         }
 
         header {
@@ -122,25 +148,47 @@
         }
 
         .hero.hero-banner {
-            padding: 2rem 0 2.5rem;
+            padding: 2rem 0 2.75rem;
             text-align: center;
         }
 
+        .hero .hero-brand-line {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            letter-spacing: 0.4px;
+        }
+
         .hero h1 {
-            font-size: clamp(2.4rem, 8vw, 4.6rem);
-            margin-bottom: 1.25rem;
-            letter-spacing: -1.5px;
+            font-size: clamp(2rem, 7vw, 1rem);
+            margin-bottom: 1rem;
+            letter-spacing: -1.3px;
             color: var(--navy);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            opacity: 0.82;
+            font-size: 1.08rem;
+            opacity: 0.84;
             max-width: 760px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
         }
 
-        .hero-cta-row {
+        .hero-support {
+            max-width: 760px;
+            margin: 0 auto 2rem;
+            font-size: 0.97rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .hero-cta-row,
+        .cta-row,
+        .freebie-cta-row,
+        .product-actions,
+        .preview-actions,
+        .service-actions {
             display: flex;
             justify-content: center;
             gap: 1rem;
@@ -151,18 +199,19 @@
             display: inline-block;
             background-color: var(--navy);
             color: var(--paper);
-            padding: 1rem 1.9rem;
+            padding: 0.95rem 1.55rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 800;
             transition: all 0.2s ease;
-            border: none;
+            border: 2px solid var(--navy);
             cursor: pointer;
             text-align: center;
         }
 
         .cta-button:hover {
             background-color: var(--gold);
+            border-color: var(--gold);
             transform: translateY(-2px);
             color: var(--navy);
         }
@@ -170,11 +219,13 @@
         .cta-secondary {
             background: var(--gold);
             color: var(--navy);
+            border-color: var(--gold);
         }
 
         .cta-secondary:hover {
             background: var(--navy);
             color: var(--paper);
+            border-color: var(--navy);
         }
 
         .cta-outline {
@@ -186,18 +237,69 @@
         .cta-outline:hover {
             background: var(--navy);
             color: var(--paper);
+            border-color: var(--navy);
+        }
+
+        .path-section {
+            padding: 0 0 3.75rem;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .path-card {
+            background: linear-gradient(135deg, rgba(190, 162, 104, 0.08), rgba(255, 255, 255, 0.98));
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .path-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .path-card p {
+            color: var(--text-dark);
+            font-size: 0.97rem;
+        }
+
+        .path-link {
+            text-decoration: none;
+            font-weight: 800;
+            color: var(--navy);
+            margin-top: auto;
+        }
+
+        .path-link:hover {
+            color: var(--gold);
         }
 
         .freebie-section {
             padding: 0 0 4rem;
         }
 
-        .freebie-card {
+        .freebie-card,
+        .product-card,
+        .service-card,
+        .preview-pack-card {
             background: linear-gradient(135deg, rgba(190, 162, 104, 0.12), rgba(255, 255, 255, 0.95));
             border: 2px solid var(--navy);
-            box-shadow: 8px 8px 0px var(--gold);
-            border-radius: 0;
-            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .freebie-card:hover,
+        .product-card:hover,
+        .service-card:hover,
+        .preview-pack-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-card-hover);
         }
 
         .freebie-inner {
@@ -208,9 +310,15 @@
             padding: 1.5rem;
         }
 
-        .freebie-image-wrap {
+        .freebie-image-wrap,
+        .product-image-wrap,
+        .service-image-wrap,
+        .preview-thumb {
             background: var(--white);
             border: 1px solid var(--border);
+        }
+
+        .freebie-image-wrap {
             padding: 0.75rem;
         }
 
@@ -220,7 +328,10 @@
             object-fit: contain;
         }
 
-        .freebie-badge {
+        .freebie-badge,
+        .product-badge,
+        .service-badge,
+        .preview-pack-badge {
             display: inline-block;
             margin-bottom: 0.9rem;
             background: rgba(190, 162, 104, 0.18);
@@ -234,18 +345,22 @@
             text-transform: uppercase;
         }
 
-        .freebie-content h2 {
+        .freebie-content h2,
+        .section-title h2 {
             font-size: clamp(2rem, 5vw, 2.8rem);
             margin-bottom: 0.8rem;
         }
 
-        .freebie-content p {
+        .freebie-content p,
+        .section-subtitle,
+        .product-summary,
+        .service-card p,
+        .preview-pack-copy {
             color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-size: 1rem;
         }
 
-        .freebie-list {
+        .freebie-list,
+        .preview-pack-list {
             list-style: none;
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -253,14 +368,16 @@
             margin: 1rem 0 1.5rem;
         }
 
-        .freebie-list li {
+        .freebie-list li,
+        .preview-pack-list li {
             color: var(--text-dark);
             font-weight: 600;
             position: relative;
             padding-left: 1rem;
         }
 
-        .freebie-list li::before {
+        .freebie-list li::before,
+        .preview-pack-list li::before {
             content: "•";
             color: var(--gold);
             position: absolute;
@@ -269,24 +386,26 @@
             font-weight: 900;
         }
 
-        .freebie-note {
-            background-color: rgba(255, 255, 255, 0.85);
+        .freebie-note,
+        .product-note,
+        .service-note,
+        .process-note {
+            background-color: rgba(255, 255, 255, 0.88);
             border-left: 3px solid var(--gold);
-            padding: 0.9rem 1rem;
-            margin-bottom: 1.2rem;
+            padding: 0.95rem 1rem;
             color: #111111;
             font-weight: 700;
         }
 
-        .freebie-cta-row {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-self: center;
+        .small-inline-note {
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            color: var(--muted);
+            font-weight: 600;
         }
 
-        #products {
-            padding: 0.5rem 0 4.5rem;
+        #previews {
+            padding: 0 0 4.5rem;
         }
 
         .section-title {
@@ -294,15 +413,11 @@
             margin-bottom: 2.5rem;
         }
 
-        .section-title h2 {
-            font-size: clamp(2rem, 5vw, 2.75rem);
-        }
-
         .section-subtitle {
             margin-top: 1rem;
             font-size: 1.05rem;
-            opacity: 0.8;
-            max-width: 680px;
+            opacity: 0.85;
+            max-width: 760px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -325,6 +440,441 @@
             z-index: -1;
         }
 
+        .preview-pack-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .preview-pack-card {
+            padding: 1.3rem;
+        }
+
+        .preview-pack-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 1rem;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .preview-pack-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-pack-helper {
+            font-size: 0.92rem;
+            color: var(--muted);
+            font-weight: 700;
+            align-self: center;
+            white-space: nowrap;
+        }
+
+        .stacked-preview-card .preview-pack-content {
+            display: block;
+        }
+
+        .preview-pack-copy {
+            color: var(--text-dark);
+        }
+
+        .preview-pack-summary {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 1.25rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .preview-pack-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.7rem 1.25rem;
+            margin: 0;
+        }
+
+        .preview-pack-list li {
+            color: var(--text-dark);
+            font-weight: 600;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .preview-pack-list li::before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 900;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .preview-gallery {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .preview-gallery-two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .preview-gallery-four {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .preview-thumb {
+            appearance: none;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            text-align: left;
+            color: var(--navy);
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .preview-thumb:hover {
+            transform: translateY(-2px);
+            border-color: rgba(190, 162, 104, 0.8);
+            box-shadow: 0 8px 22px rgba(13, 26, 59, 0.08);
+        }
+
+        .preview-thumb img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 0.65rem;
+            object-fit: contain;
+            background: #fafafa;
+        }
+
+        .preview-thumb span {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.35;
+        }
+
+        .preview-thumb small {
+            display: block;
+            margin-top: 0.2rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .image-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(13, 26, 59, 0.82);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 9999;
+        }
+
+        .image-modal.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .image-modal-dialog {
+            background: #fff;
+            width: min(100%, 1100px);
+            max-height: 95vh;
+            overflow: auto;
+            border-radius: 12px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .image-modal-close {
+            display: inline-block;
+            margin-left: auto;
+            background: var(--navy);
+            color: var(--paper);
+            border: none;
+            border-radius: 8px;
+            padding: 0.55rem 0.85rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .image-modal-close:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .image-modal-stage {
+            display: grid;
+            grid-template-columns: 56px minmax(0, 1fr) 56px;
+            gap: 0.75rem;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .image-modal-image-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 220px;
+            min-width: 0;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-x pan-y pinch-zoom;
+        }
+
+        .image-modal img {
+            width: auto;
+            max-width: 100%;
+            max-height: 72vh;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .image-modal-nav {
+            border: none;
+            background: var(--navy);
+            color: var(--paper);
+            width: 56px;
+            height: 56px;
+            border-radius: 999px;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .image-modal-nav:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .image-modal-nav:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .image-modal-meta {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .image-modal-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .image-modal-counter {
+            margin-top: 0.25rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1100px) {
+            .preview-gallery-four {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 980px) {
+            .preview-pack-header {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-pack-helper {
+                white-space: normal;
+            }
+
+            .preview-pack-summary {
+                grid-template-columns: 1fr;
+                align-items: start;
+            }
+
+            .preview-actions {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .preview-pack-list {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-gallery-two,
+            .preview-gallery-four {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .image-modal-stage {
+                grid-template-columns: 44px minmax(0, 1fr) 44px;
+            }
+
+            .image-modal-nav {
+                width: 44px;
+                height: 44px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-modal {
+                padding: 0;
+                justify-content: stretch;
+            }
+
+            .image-modal-dialog {
+                width: 100vw;
+                max-width: 100vw;
+                padding: 0.65rem 0.45rem 0.75rem;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .image-modal-close {
+                margin: 0 0 0.45rem 0;
+                align-self: flex-start;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .image-modal-stage {
+                position: relative;
+                display: block;
+                flex: 1 1 auto;
+                min-height: 0;
+                margin-top: 0;
+            }
+
+            .image-modal-image-wrap {
+                height: 100%;
+                min-height: 0;
+                padding: 0 1.6rem;
+                display: block;
+                overflow: auto;
+                text-align: center;
+            }
+
+            .image-modal img {
+                display: block;
+                width: 100%;
+                max-width: none;
+                max-height: none;
+                height: auto;
+                margin: 0 auto;
+            }
+
+            .image-modal-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 3;
+                width: 40px;
+                height: 40px;
+                font-size: 1.35rem;
+                background: rgba(13, 26, 59, 0.96);
+                box-shadow: 0 4px 14px rgba(13, 26, 59, 0.18);
+            }
+
+            .image-modal-nav.prev {
+                left: 0.1rem;
+            }
+
+            .image-modal-nav.next {
+                right: 0.1rem;
+            }
+
+            .image-modal-meta {
+                margin-top: 0.55rem;
+                padding: 0 0.3rem;
+            }
+
+            .image-modal-title {
+                font-size: 0.95rem;
+                line-height: 1.28;
+            }
+
+            .image-modal-counter {
+                font-size: 0.84rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .image-modal-dialog {
+                padding: 0.55rem 0.3rem 0.65rem;
+            }
+
+            .image-modal-close {
+                padding: 0.45rem 0.7rem;
+                font-size: 0.95rem;
+            }
+
+            .image-modal-image-wrap {
+                padding: 0 1.25rem;
+            }
+
+            .image-modal-nav {
+                width: 34px;
+                height: 34px;
+                font-size: 1.15rem;
+            }
+
+            .image-modal-title {
+                font-size: 0.9rem;
+            }
+
+            .image-modal-counter {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .preview-gallery-two,
+            .preview-gallery-four {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .preview-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        #products {
+            padding: 0.5rem 0 4.5rem;
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -333,20 +883,10 @@
         }
 
         .product-card {
-            background: linear-gradient(135deg, rgba(190, 162, 104, 0.12), rgba(255, 255, 255, 0.95));
-            border: 2px solid var(--navy);
             padding: 1.25rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 8px 8px 0px var(--gold);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
             gap: 1.25rem;
-        }
-
-        .product-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--gold);
         }
 
         .product {
@@ -356,8 +896,6 @@
         }
 
         .product-image-wrap {
-            background: var(--white);
-            border: 1px solid var(--border);
             padding: 0.75rem;
             max-width: 320px;
             align-self: center;
@@ -371,17 +909,7 @@
         }
 
         .product-badge {
-            display: inline-block;
             margin: 0 auto;
-            background: rgba(190, 162, 104, 0.16);
-            color: var(--navy);
-            border: 1px solid rgba(190, 162, 104, 0.55);
-            border-radius: 999px;
-            padding: 0.45rem 0.9rem;
-            font-size: 0.82rem;
-            font-weight: 800;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
         }
 
         .product-card h3 {
@@ -399,8 +927,7 @@
             text-align: center;
         }
 
-        .product-fit,
-        .product-summary {
+        .product-fit {
             font-size: 1rem;
             color: var(--text-dark);
         }
@@ -409,23 +936,54 @@
             color: var(--navy);
         }
 
-        .product-bullets {
+        .product-bullets,
+        .service-list {
             padding-left: 1.2rem;
             margin-top: 0.25rem;
         }
 
-        .product-bullets li {
+        .product-bullets li,
+        .service-list li {
             margin-bottom: 0.7rem;
             color: var(--text-dark);
         }
 
-        .product-note {
-            background-color: #f9fafb;
-            border-left: 3px solid var(--gold);
-            padding: 0.95rem 1rem;
-            border-radius: 4px;
-            font-weight: 700;
-            color: #111111;
+        .why-section {
+            padding: 0 0 4rem;
+        }
+
+        .why-section h2,
+        .process-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+        }
+
+        .why-grid,
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .why-card,
+        .process-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .why-card h3,
+        .process-card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+        }
+
+        .why-card p,
+        .process-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
         }
 
         .services-section {
@@ -447,19 +1005,10 @@
         }
 
         .service-card {
-            background: linear-gradient(135deg, rgba(190, 162, 104, 0.12), rgba(255, 255, 255, 0.95));
-            border: 2px solid var(--navy);
             padding: 1.25rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            box-shadow: 8px 8px 0px var(--gold);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .service-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--gold);
         }
 
         .service-header-row {
@@ -479,8 +1028,6 @@
         .service-image-wrap {
             width: 220px;
             max-width: 220px;
-            background: var(--white);
-            border: 1px solid var(--border);
             padding: 0.75rem;
             min-height: 220px;
             display: flex;
@@ -492,14 +1039,6 @@
             width: 100%;
             height: auto;
             object-fit: contain;
-        }
-
-        .service-image-placeholder {
-            color: var(--muted);
-            font-weight: 700;
-            text-align: center;
-            font-size: 0.95rem;
-            line-height: 1.4;
         }
 
         .service-image-caption {
@@ -515,23 +1054,9 @@
             min-width: 0;
         }
 
-        .service-intro p {
-            margin: 0;
-            color: var(--text-dark);
-        }
-
         .service-badge {
-            display: inline-block;
             align-self: flex-start;
-            background: rgba(190, 162, 104, 0.16);
-            color: var(--navy);
-            border: 1px solid rgba(190, 162, 104, 0.55);
-            border-radius: 999px;
-            padding: 0.45rem 0.9rem;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
+            margin-bottom: 0;
         }
 
         .service-card h3 {
@@ -544,34 +1069,11 @@
             color: var(--gold);
         }
 
-        .service-card p {
-            color: var(--text-dark);
-        }
-
         .service-list-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 0 2rem;
             margin-top: 0.25rem;
-        }
-
-        .service-list {
-            padding-left: 1.2rem;
-            margin: 0;
-        }
-
-        .service-list li {
-            margin-bottom: 0.7rem;
-            color: var(--text-dark);
-        }
-
-        .service-note {
-            background-color: #f9fafb;
-            border-left: 3px solid var(--gold);
-            padding: 0.95rem 1rem;
-            border-radius: 4px;
-            font-weight: 700;
-            color: #111111;
         }
 
         .service-meta {
@@ -592,37 +1094,8 @@
             color: var(--navy);
         }
 
-        .why-section {
+        .process-section {
             padding: 0 0 4rem;
-        }
-
-        .why-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-
-        .why-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 10px;
-        }
-
-        .why-card h3 {
-            margin-bottom: 0.75rem;
-            font-size: 1.15rem;
-        }
-
-        .why-card p {
-            color: var(--muted);
-            font-size: 0.98rem;
         }
 
         .final-cta {
@@ -639,14 +1112,6 @@
             margin: 0 auto 1.75rem;
             max-width: 700px;
             opacity: 0.82;
-        }
-
-        .cta-row {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.2rem;
         }
 
         .store-link-wrap {
@@ -798,10 +1263,10 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: radial-gradient(circle, 
-                rgba(255, 255, 255, 0.4) 0%, 
-                rgba(244, 63, 94, 0.2) 30%, 
-                rgba(56, 189, 248, 0.1) 60%, 
+            background: radial-gradient(circle,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(244, 63, 94, 0.2) 30%,
+                rgba(56, 189, 248, 0.1) 60%,
                 transparent 80%
             );
             filter: blur(15px);
@@ -861,7 +1326,7 @@
             border-radius: 50%;
             border: 1px solid rgba(255, 255, 255, 0.3);
             z-index: 2;
-            animation: orbit 8s linear infinite; 
+            animation: orbit 8s linear infinite;
         }
 
         .orbit-heart {
@@ -944,7 +1409,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             font-family: system-ui, -apple-system, sans-serif;
             text-align: center;
-            max-width: 300px; 
+            max-width: 300px;
             margin: 0 auto;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -952,24 +1417,6 @@
         .sidebar-ad-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar-img {
-            width: 100%;
-            height: 180px;
-            background: var(--news-bg);
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .sidebar-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         footer {
@@ -987,12 +1434,14 @@
             .freebie-list,
             .services-grid,
             .service-stack,
-            .service-meta {
+            .service-meta,
+            .path-grid,
+            .process-grid {
                 grid-template-columns: 1fr;
             }
 
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2rem;
             }
 
             .news-header {
@@ -1023,9 +1472,9 @@
                 min-height: 180px;
             }
 
-            .service-list-grid {
+            .service-list-grid,
+            .freebie-list {
                 grid-template-columns: 1fr;
-                gap: 0;
             }
         }
 
@@ -1040,7 +1489,7 @@
             }
 
             .hero.hero-banner {
-                padding: 1.5rem 0 2rem;
+                padding: 1.4rem 0 2rem;
             }
 
             .hero p {
@@ -1048,13 +1497,15 @@
             }
 
             .product-card,
-            .service-card {
+            .service-card,
+            .preview-pack-card {
                 padding: 1rem;
             }
 
             .product-card h3,
-            .service-card h3 {
-                font-size: 1.6rem;
+            .service-card h3,
+            .preview-pack-header h3 {
+                font-size: 1.55rem;
             }
 
             .freebie-card {
@@ -1067,7 +1518,10 @@
 
             .hero-cta-row,
             .cta-row,
-            .freebie-cta-row {
+            .freebie-cta-row,
+            .product-actions,
+            .preview-actions,
+            .service-actions {
                 flex-direction: column;
             }
         }
@@ -1079,6 +1533,7 @@
         <div class="container">
             <nav class="top-nav">
                 <a href="#free-guide">Free Guide</a>
+                <a href="#previews">What’s Inside</a>
                 <a href="#products">Products</a>
                 <a href="#services">Services</a>
                 <a href="#studio-dispatch">Studio Dispatch</a>
@@ -1087,7 +1542,7 @@
 
             <div class="logo">
                 <img
-                    src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/NapkinWordsLogo.png"
+                    src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/NapkinLogo.png"
                     alt="Strategic Napkin Studio"
                     class="site-logo"
                     onerror="this.style.display='none'">
@@ -1098,19 +1553,48 @@
     <main>
         <section class="hero hero-banner">
             <div class="container">
-                <h1>The best ideas start on a <span class="sketch-font">napkin.</span></h1>
+
+                <h1>Beginner-friendly digital products and simple starter services for creators and small businesses.</h1>
+
                 <p>
-                    Strategic Napkin Studio creates beginner-friendly digital products and simple starter services for creators, digital sellers, and small businesses.
-
-                    Our focus is helping people find direction, build faster, and launch with less friction through practical guides, AI-assisted resources, social media tools, and simple online business support.<br>
-
-                    Start with the free guide, explore the packs, and build from there.
+                    Explore niche guides, AI resources, launch tools, and simple setup help designed to make your next step clearer and easier.
                 </p>
 
+                <div class="hero-support">
+                    Start today, preview what’s inside, and choose the pack or service that fits what you're looking for.
+                </div>
+
                 <div class="hero-cta-row">
-                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Free Guide</a>
-                    <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
-                    <a href="#products" class="cta-button cta-outline">See the Products</a>
+                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="hero_free_guide" data-track-location="hero">Get the Free Guide</a>
+                    <a href="#previews" class="cta-button cta-secondary" data-track="hero_preview_section" data-track-location="hero">See What’s Inside</a>
+                    <a href="#services" class="cta-button cta-outline" data-track="hero_services" data-track-location="hero">View Services</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="path-section">
+            <div class="container">
+                <div class="path-grid">
+                    <div class="path-card">
+                        <div class="eyebrow">Start Free</div>
+                        <h3>Need a niche idea first?</h3>
+                        <p>Start with the free starter guide and get a practical shortlist you can actually test.</p>
+                        <a href="#free-guide" class="path-link" data-track="path_free_guide" data-track-location="path_section">Go to the free guide →</a>
+                    </div>
+
+                    <div class="path-card">
+                        <div class="eyebrow">Preview First</div>
+                        <h3>Want to see the pack contents?</h3>
+                        <p>Check the guide previews and sample pages before you decide which pack fits you best.</p>
+                        <a href="#previews" class="path-link" data-track="path_previews" data-track-location="path_section">See what’s inside →</a>
+                    </div>
+
+                    <div class="path-card">
+                        <div class="eyebrow">Done-for-You Help</div>
+                        <h3>Need a simple website or Payhip help?</h3>
+                        <p>Skip straight to the starter services section if you want help getting something live faster.</p>
+                        <a href="#services" class="path-link" data-track="path_services" data-track-location="path_section">View services →</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1134,9 +1618,7 @@
                             <h2>25 High-Demand Niche Ideas for Beginners</h2>
 
                             <p>
-                                Not sure what niche to choose? Start here. This free guide is built
-                                to help beginners spot stronger market directions without getting buried
-                                in research overwhelm.
+                                Not sure what niche to choose? Start here. This free guide is built to help beginners spot stronger market directions without getting buried in research overwhelm.
                             </p>
 
                             <ul class="freebie-list">
@@ -1147,13 +1629,268 @@
                             </ul>
 
                             <div class="freebie-note">
-                                Grab the free guide first, then come back for the full AI &amp; Niche Pack
-                                if you want the deeper worksheets, trackers, prompts, and business-building guides.
+                                Before you download, you can preview a real page from the guide below. That gives visitors a faster reason to click instead of guessing what they will get.
                             </div>
 
-                            <div class="freebie-cta-row">
-                                <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer">Download Free Guide</a>
-                                <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Get the Full AI Pack</a>
+                            <div class="freebie-cta-row" style="margin-top: 20px">
+                                <a href="#freebie-preview" class="cta-button cta-outline" data-track="freebie_preview_anchor" data-track-location="freebie_section">Preview the Guide</a>
+                                <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="freebie_download" data-track-location="freebie_section">Download Free Guide</a>
+                            </div>
+
+                            <div class="small-inline-note">
+                                Keep scrolling if you want the deeper paid packs with guides, worksheets, prompts, and trackers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="previews">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="highlight">See What’s Inside</h2>
+                    <p class="section-subtitle">
+                        Preview real pages from the free guide and paid packs. Tap any preview to open a larger view and flip through the pages.
+                    </p>
+                </div>
+
+                <div class="preview-pack-grid">
+                    <div class="preview-pack-card stacked-preview-card" id="freebie-preview">
+                        <div class="preview-pack-header">
+                            <div>
+                                <div class="preview-pack-badge">Free Starter Guide</div>
+                                <h3>25 High-Demand Niche Ideas for Beginners</h3>
+                                <p class="preview-pack-copy">
+                                    A practical shortlist to help beginners narrow down stronger niche directions, pick a first testable idea, and move without overthinking.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="preview-pack-content">
+                            <div class="preview-pack-summary">
+                                <ul class="preview-pack-list">
+                                    <li>beginner-friendly niche shortlist</li>
+                                    <li>simple “pick 3 and test” workflow</li>
+                                    <li>clear signs for promising niches</li>
+                                    <li>practical next-step direction</li>
+                                </ul>
+
+                                <div class="preview-actions">
+                                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="preview_freebie_download" data-track-location="preview_section">Get the Free Guide</a>
+                                </div>
+                            </div>
+
+                            <div class="preview-gallery preview-gallery-two">
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="25 High-Demand Niche Ideas for Beginners"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Starter-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Starter-Guide-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Starter-Guide-Preview-1.png"
+                                        alt="Starter guide preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Starter Guide Preview</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="25 High-Demand Niche Ideas for Beginners"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Starter-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Starter-Guide-Preview-2.png"
+                                    data-start="1">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Starter-Guide-Preview-2.png"
+                                        alt="Starter guide preview page 2"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Starter Guide Preview</span>
+                                    <small>Page 2 of 2</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-pack-card stacked-preview-card" id="launch-previews">
+                        <div class="preview-pack-header">
+                            <div>
+                                <div class="preview-pack-badge">Social Media &amp; Digital Launch Kit</div>
+                                <h3>What’s inside the Digital Launch package</h3>
+                                <p class="preview-pack-copy">
+                                    This pack is for people who want practical launch guidance and usable content-building support without overcomplicating the process.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="preview-pack-content">
+                            <div class="preview-pack-summary">
+                                <ul class="preview-pack-list">
+                                    <li>Canva template guidance</li>
+                                    <li>lean digital launch planning</li>
+                                    <li>20 ready-made quote graphics</li>
+                                    <li>200 inspirational quotes in CSV format</li>
+                                </ul>
+
+                                <div class="preview-actions">
+                                    <a href="#products" class="cta-button cta-outline" data-track="preview_launch_compare" data-track-location="preview_section">Compare the Packs</a>
+                                    <a href="https://payhip.com/b/S1WVP" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="preview_launch_buy" data-track-location="preview_section">Get the Launch Kit</a>
+                                </div>
+                            </div>
+
+                            <div class="preview-gallery preview-gallery-four">
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="Canva Social Media Templates Guide"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Canva-Templates-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Canva-Templates-Guide-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Canva-Templates-Guide-Preview-1.png"
+                                        alt="Canva guide preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Canva Templates Guide</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="Canva Social Media Templates Guide"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Canva-Templates-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Canva-Templates-Guide-Preview-2.png"
+                                    data-start="1">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Canva-Templates-Guide-Preview-2.png"
+                                        alt="Canva guide preview page 2"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Canva Templates Guide</span>
+                                    <small>Page 2 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="Lean Digital Product Launch Guide"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Lean-Launch-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Lean-Launch-Guide-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Lean-Launch-Guide-Preview-1.png"
+                                        alt="Lean launch guide preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Lean Launch Guide</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="Lean Digital Product Launch Guide"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Lean-Launch-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Lean-Launch-Guide-Preview-2.png"
+                                    data-start="1">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Lean-Launch-Guide-Preview-2.png"
+                                        alt="Lean launch guide preview page 2"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Lean Launch Guide</span>
+                                    <small>Page 2 of 2</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-pack-card stacked-preview-card" id="creators-previews">
+                        <div class="preview-pack-header">
+                            <div>
+                                <div class="preview-pack-badge">Creators A.I. &amp; Niche Guides Pack</div>
+                                <h3>What’s inside the Creators package</h3>
+                                <p class="preview-pack-copy">
+                                    This pack is built for people who need niche clarity, stronger direction, and practical AI-supported tools for building useful digital offers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="preview-pack-content">
+                            <div class="preview-pack-summary">
+                                <ul class="preview-pack-list">
+                                    <li>Fine tune niche discovery</li>
+                                    <li>Learn to build with AI</li>
+                                    <li>Prompt frameworks and guidance</li>
+                                    <li>Trackers and worksheets for clearer decisions</li>
+                                </ul>
+
+                                <div class="preview-actions">
+                                    <a href="#products" class="cta-button cta-outline" data-track="preview_creators_compare" data-track-location="preview_section">Compare the Packs</a>
+                                    <a href="https://payhip.com/b/w8ND7" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="preview_creators_buy" data-track-location="preview_section">Get the AI &amp; Niche Pack</a>
+                                </div>
+                            </div>
+
+                            <div class="preview-gallery preview-gallery-four">
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="Build Side by Side with AI"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Build-By-A.I.-Guide-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Build-By-A.I.-Guide-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Build-By-A.I.-Guide-Preview-1.png"
+                                        alt="Build by AI guide preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Build Side by Side with AI</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="What Would I Do Well At Worksheet"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Do-Well-Worksheet-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Do-Well-Worksheet-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Do-Well-Worksheet-Preview-1.png"
+                                        alt="Do Well worksheet preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>What Would I Do Well At Worksheet</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="AI Prompt Bank"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Prompt-Bank-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Prompt-Bank-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Prompt-Bank-Preview-1.png"
+                                        alt="Prompt bank preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>AI Prompt Bank</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="preview-thumb"
+                                    data-title="Niche Research Tracker"
+                                    data-images="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Niche-Tracker-Preview-1.png|https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Niche-Tracker-Preview-2.png"
+                                    data-start="0">
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/Niche-Tracker-Preview-1.png"
+                                        alt="Niche tracker preview page 1"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
+                                    <span>Niche Research Tracker</span>
+                                    <small>Page 1 of 2</small>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1164,9 +1901,9 @@
         <section id="products">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="highlight">The Path Ahead</h2>
+                    <h2 class="highlight">Choose Your Pack</h2>
                     <p class="section-subtitle">
-                        Pick the pack that matches where you are right now.
+                        Now that people can see what’s inside, make it easy for them to compare and choose.
                     </p>
                 </div>
 
@@ -1181,6 +1918,7 @@
                                     loading="lazy"
                                     onerror="this.style.display='none'">
                             </div>
+
                             <div class="product-badge">Best for beginners</div>
 
                             <h3>Social Media &amp; Digital Launch Kit</h3>
@@ -1202,11 +1940,14 @@
                             </ul>
 
                             <div class="product-note">
-                                A simple shortcut for people who want to build a better feed and start launching with less friction.
+                                Great for someone who wants a light, low-cost starting point and wants to get started quick.
                             </div>
                         </div>
 
-                        <a href="https://payhip.com/b/S1WVP" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Launch Kit</a>
+                        <div class="product-actions">
+                            <a href="#launch-previews" class="cta-button cta-outline" data-track="product_launch_preview" data-track-location="product_card">Preview What’s Inside</a>
+                            <a href="https://payhip.com/b/S1WVP" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="product_launch_buy" data-track-location="product_card">Get the Launch Kit</a>
+                        </div>
                     </div>
 
                     <div class="product-card">
@@ -1219,6 +1960,7 @@
                                     loading="lazy"
                                     onerror="this.style.display='none'">
                             </div>
+
                             <div class="product-badge">Best for niche clarity</div>
 
                             <h3>Creators A.I. &amp; Niche Guides Pack</h3>
@@ -1240,11 +1982,14 @@
                             </ul>
 
                             <div class="product-note">
-                                A stronger starting point for people who are tired of guessing what to build, what niche to choose, and how to use AI effectively.
+                                Best for people who want the deeper bundle and want to fine tune their appraoch.
                             </div>
                         </div>
 
-                        <a href="https://payhip.com/b/w8ND7" class="cta-button" target="_blank" rel="noopener noreferrer">Get the AI &amp; Niche Pack</a>
+                        <div class="product-actions">
+                            <a href="#creators-previews" class="cta-button cta-outline" data-track="product_creators_preview" data-track-location="product_card">Preview What’s Inside</a>
+                            <a href="https://payhip.com/b/w8ND7" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="product_creators_buy" data-track-location="product_card">Get the AI/Niche Pack</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1287,14 +2032,12 @@
                         <div class="service-header-row">
                             <div class="service-image-column">
                                 <div class="service-image-wrap">
-                                    <div class="service-image-placeholder">
-                                        <img
-                                            src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/StarterSite.png"
-                                            alt="Starter_Site_Service"
-                                            class="product-image"
-                                            loading="lazy"
-                                            onerror="this.style.display='none'">
-                                    </div>
+                                    <img
+                                        src="https://raw.githubusercontent.com/StrategicNapkinStudio-DEV/StrategicNapkinStudioSite/main/StarterSite.png"
+                                        alt="One-Page Starter Site service"
+                                        class="service-image"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'">
                                 </div>
 
                                 <div class="service-image-caption">
@@ -1308,8 +2051,7 @@
                                 <span class="service-price">$99</span>
 
                                 <p>
-                                    A clean, mobile-friendly one-page website built in HTML/CSS and deployed on GitHub Pages.
-                                    Great for creators, digital products, and small businesses that need a simple online presence fast.
+                                    A clean, mobile-friendly one-page website built in HTML/CSS and deployed on GitHub Pages. Great for creators, digital products, and small businesses that need a simple online presence fast.
                                 </p>
 
                                 <div class="service-list-grid">
@@ -1343,9 +2085,11 @@
                             Major layout changes, new sections, copywriting, custom domains, backend features, or advanced animations are not included in this starter package.
                         </div>
 
-                        <a href="https://payhip.com/order?link=wUT51&pricing_plan=Q9zO389dzx" class="cta-button" target="_blank" rel="noopener noreferrer">
-                            Let's Build
-                        </a>
+                        <div class="service-actions">
+                            <a href="https://payhip.com/order?link=wUT51&pricing_plan=Q9zO389dzx" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="service_starter_site" data-track-location="services_section">
+                                Book the Starter Site
+                            </a>
+                        </div>
                     </div>
 
                     <div class="service-stack">
@@ -1369,7 +2113,9 @@
                                 Best for people who already have their files ready and want help getting one product set up cleanly.
                             </div>
 
-                            <a href="https://payhip.com/order?link=wUT51&pricing_plan=w9B31MpZWR" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Get Started Today!</a>
+                            <div class="service-actions">
+                                <a href="https://payhip.com/order?link=wUT51&pricing_plan=w9B31MpZWR" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer" data-track="service_payhip_setup" data-track-location="services_section">Add Payhip Setup Help</a>
+                            </div>
                         </div>
 
                         <div class="service-card">
@@ -1392,8 +2138,33 @@
                                 Smaller tasks start at $25. Larger or custom Payhip help can be quoted separately.
                             </div>
 
-                            <a href="https://payhip.com/Strategicnapkinstudio/contact" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer">Contact Us</a>
+                            <div class="service-actions">
+                                <a href="https://payhip.com/Strategicnapkinstudio/contact" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer" data-track="service_payhip_help_contact" data-track-location="services_section">Ask About Payhip Help</a>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="container">
+                <h2>How it works</h2>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <h3>1. Preview first</h3>
+                        <p>Use the free guide and the preview section to see what the packs are actually like before you choose.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <h3>2. Buy or book</h3>
+                        <p>Choose the pack that fits your stage, or book a simple starter service if you want direct help.</p>
+                    </div>
+
+                    <div class="process-card">
+                        <h3>3. Start moving</h3>
+                        <p>Digital products are delivered through Payhip, and services are handled by the team as quick as possible.</p>
                     </div>
                 </div>
             </div>
@@ -1401,19 +2172,19 @@
 
         <section class="final-cta">
             <div class="container">
-                <h2>Start free. Build smarter. Launch faster.</h2>
+                <h2>Start free. Preview first. Build smarter.</h2>
                 <p>
-                    Grab the free niche guide first, then move into the full AI &amp; Niche Pack or the Launch Kit when you are ready for the next step.
+                    Grab the free niche guide, preview the packs, and move into the paid product or starter service that fits your next step.
                 </p>
 
                 <div class="cta-row">
-                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Free Guide</a>
-                    <a href="https://payhip.com/b/w8ND7" class="cta-button cta-secondary" target="_blank" rel="noopener noreferrer">Start with the AI &amp; Niche Pack</a>
-                    <a href="https://payhip.com/b/S1WVP" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer">Get the Launch Kit</a>
+                    <a href="https://payhip.com/b/fuatD" class="cta-button" target="_blank" rel="noopener noreferrer" data-track="final_free_guide" data-track-location="final_cta">Get the Free Guide</a>
+                    <a href="#previews" class="cta-button cta-secondary" data-track="final_preview_section" data-track-location="final_cta">Preview the Packs</a>
+                    <a href="https://payhip.com/Strategicnapkinstudio" class="cta-button cta-outline" target="_blank" rel="noopener noreferrer" data-track="final_store" data-track-location="final_cta">Browse the Store</a>
                 </div>
 
-                <p class="store-link-wrap">
-                    <a href="https://payhip.com/Strategicnapkinstudio" class="store-link" target="_blank" rel="noopener noreferrer">Browse the full store</a>
+                <p class="store-link-wrap" style="margin-top: 20px">
+                    <a href="https://payhip.com/Strategicnapkinstudio" class="store-link" target="_blank" rel="noopener noreferrer" data-track="final_store_link" data-track-location="final_cta">Browse the full store</a>
                 </p>
             </div>
         </section>
@@ -1424,11 +2195,11 @@
                     <h2>Studio Dispatch</h2>
                     <div class="news-date">EXTERNAL RESOURCES &bull; <script>document.write(new Date().toLocaleDateString('en-US', {month: 'long', year: 'numeric'}))</script></div>
                 </div>
-                
+
                 <div class="news-grid">
                     <div class="news-feed">
- 
-                        <a href="LINK" class="article">
+
+                        <a href="https://country.iheart.com/content/2026-03-05-jelly-roll-becomes-newest-grand-ole-opry-member-after-emotional-induction/" class="article" target="_blank" rel="noopener noreferrer">
                             <div class="article-img-wrapper-container">
                                 <div class="article-img-wrapper">
                                     <img
@@ -1444,7 +2215,7 @@
                                 <div class="article-content">
                                     <span class="article-category">Music News</span>
                                     <h4>Jelly Roll Becomes Newest Grand Ole Opry Member After Emotional Induction</h4>
-                                    <p>Jelly Roll is officially a member of the Grand Ole Opry! Read the article to find out more!</p>
+                                    <p>Jelly Roll is officially a member of the Grand Ole Opry! Read the article to find out more.</p>
                                 </div>
                                 <span class="ad-tag" style="font-size: 8px;">Article by: By Kelly Fisher</span>
                             </div>
@@ -1466,7 +2237,7 @@
                                 <div class="article-content">
                                     <span class="article-category">Tech News</span>
                                     <h4>Ultra-cool step toward transformative technologies</h4>
-                                    <p>Harvard physicists have published a paper in Nature detailing a new way to study materials at high pressure using quantum sensors. It brings the world one step closer to the "holy grail" of physics!</p>
+                                    <p>Harvard physicists have published a paper in Nature detailing a new way to study materials at high pressure using quantum sensors. It brings the world one step closer to the "holy grail" of physics.</p>
                                 </div>
                                 <span class="ad-tag" style="font-size: 8px;">Kermit Pattison | Harvard Staff Writer</span>
                             </div>
@@ -1488,7 +2259,7 @@
                                 <div class="article-content">
                                     <span class="article-category">Art News</span>
                                     <h4>BURNING MAN PROJECT ANNOUNCES 75 ART HONORARIA PROJECTS</h4>
-                                    <p>Burning Man Project today announced the recipients of its 2026 Honoraria Art Grants, funding 75 projects that will only ever be experienced side by side for just one week, at the nonprofit's annual gathering from August 30-September 7 in Black Rock City, Nevada. Read the article to find out more!</p>
+                                    <p>Burning Man Project today announced the recipients of its 2026 Honoraria Art Grants, funding 75 projects that will only ever be experienced side by side for just one week, at the nonprofit's annual gathering from August 30-September 7 in Black Rock City, Nevada.</p>
                                 </div>
                                 <span class="ad-tag" style="font-size: 8px;">Provided by PR Newswire</span>
                             </div>
@@ -1497,14 +2268,14 @@
 
                     <div class="news-sidebar">
                         <div class="sidebar-ad-card">
-                            <span class="ad-tag">Sponsored Ad</span>      
+                            <span class="ad-tag">Sponsored Ad</span>
                             <div class="ad-animation-container">
                                 <div class="burst"></div>
                                 <div class="spinner-core">
                                     <svg class="heart-svg heart-red" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                                     <svg class="heart-svg heart-blue" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                                 </div>
-            
+
                                 <div class="spinner-ring">
                                     <div class="orbit-heart heart-left heart-blue">
                                         <svg class="heart-svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -1517,7 +2288,7 @@
 
                             <h5 class="ad-headline">One Badge.<br>A Lifetime of entertainment.</h5>
                             <p class="ad-body">HeartBadge is your pass to unforgettable live and digital moments.</p>
-                            <a href="https://heartbadge.com/?ref=HB629XFX2X" class="ad-cta-btn">Get Yours Today &rarr;</a>
+                            <a href="https://heartbadge.com/?ref=HB629XFX2X" class="ad-cta-btn" target="_blank" rel="noopener noreferrer">Get Yours Today &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -1532,20 +2303,418 @@
         </div>
     </footer>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetSelector = this.getAttribute('href');
-                const target = document.querySelector(targetSelector);
+    <div class="image-modal" id="imageModal" aria-hidden="true">
+        <div class="image-modal-dialog" role="dialog" aria-modal="true" aria-label="Preview image viewer">
+            <button type="button" class="image-modal-close" id="imageModalClose">Close</button>
 
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            <div class="image-modal-stage">
+                <button type="button" class="image-modal-nav prev" id="imageModalPrev" aria-label="Previous preview page">&#8249;</button>
+
+                <div class="image-modal-image-wrap">
+                    <img id="imageModalImg" src="" alt="">
+                </div>
+
+                <button type="button" class="image-modal-nav next" id="imageModalNext" aria-label="Next preview page">&#8250;</button>
+            </div>
+
+            <div class="image-modal-meta">
+                <div class="image-modal-title" id="imageModalTitle"></div>
+                <div class="image-modal-counter" id="imageModalCounter"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function trackEvent(eventName, params = {}) {
+        if (typeof gtag !== 'function') return;
+        gtag('event', eventName, params);
+    }
+
+    function slugify(text) {
+        return String(text || '')
+            .toLowerCase()
+            .trim()
+            .replace(/&/g, 'and')
+            .replace(/[^a-z0-9]+/g, '_')
+            .replace(/^_+|_+$/g, '');
+    }
+
+    function parsePrice(text) {
+        if (!text) return undefined;
+        const match = String(text).match(/(\d+(\.\d+)?)/);
+        return match ? Number(match[1]) : undefined;
+    }
+
+    function getDomainFromUrl(url) {
+        try {
+            return new URL(url, window.location.origin).hostname;
+        } catch {
+            return '';
+        }
+    }
+
+    function getSectionName(el) {
+        if (!el) return '';
+        if (el.id) return el.id;
+        const heading = el.querySelector('h2, h3');
+        return heading ? heading.textContent.trim() : '';
+    }
+
+    function buildItemFromCard(card, itemType) {
+        if (!card) return null;
+
+        const titleEl = card.querySelector('h3');
+        const priceEl = card.querySelector('.price, .service-price');
+        const title = titleEl ? titleEl.textContent.trim() : 'unknown_item';
+        const price = parsePrice(priceEl ? priceEl.textContent : '');
+
+        return {
+            item_id: slugify(title),
+            item_name: title,
+            item_category: itemType,
+            price: price
+        };
+    }
+
+    // -----------------------------
+    // Existing CTA helper upgraded
+    // -----------------------------
+    function trackCTA(label, location, extra = {}) {
+        trackEvent('cta_click', {
+            cta_label: label,
+            cta_location: location,
+            page_path: window.location.pathname,
+            ...extra
+        });
+    }
+
+    // -----------------------------
+    // Smooth scroll for on-page links
+    // -----------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetSelector = this.getAttribute('href');
+            const target = document.querySelector(targetSelector);
+
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // -----------------------------
+    // Generic click tracking
+    // -----------------------------
+    document.addEventListener('click', function (e) {
+        const clickable = e.target.closest('a, button');
+        if (!clickable) return;
+
+        const href = clickable.getAttribute('href') || '';
+        const text = clickable.textContent.trim();
+        const linkDomain = href ? getDomainFromUrl(href) : '';
+        const isExternalLink = href && /^https?:/i.test(href) && linkDomain !== window.location.hostname;
+
+        // Existing data-track support
+        if (clickable.dataset.track) {
+            trackCTA(
+                clickable.dataset.track,
+                clickable.dataset.trackLocation || 'site',
+                {
+                    link_text: text,
+                    link_domain: linkDomain || '(internal)',
+                    link_url: href || ''
                 }
+            );
+        }
+
+        // Product card selection -> GA4 recommended event
+        const productCard = clickable.closest('.product-card');
+        if (productCard && href) {
+            const item = buildItemFromCard(productCard, 'digital_product');
+            if (item) {
+                trackEvent('select_item', {
+                    item_list_name: 'homepage_products',
+                    items: [item]
+                });
+            }
+        }
+
+        // Service card selection -> also use select_item for consistency
+        const serviceCard = clickable.closest('.service-card');
+        if (serviceCard && href) {
+            const item = buildItemFromCard(serviceCard, 'service');
+            if (item) {
+                trackEvent('select_item', {
+                    item_list_name: 'homepage_services',
+                    items: [item]
+                });
+            }
+        }
+
+        // Affiliate ad click
+        if (clickable.matches('.ad-cta-btn')) {
+            trackEvent('affiliate_click', {
+                affiliate_name: 'heartbadge',
+                link_domain: linkDomain,
+                link_url: href,
+                link_text: text,
+                placement: 'studio_dispatch_sidebar'
+            });
+        }
+
+        // Studio Dispatch article click
+        const article = clickable.closest('.article');
+        if (article && href) {
+            const articleTitle = article.querySelector('h4')?.textContent.trim() || text || 'dispatch_article';
+            const category = article.querySelector('.article-category')?.textContent.trim() || '';
+
+            trackEvent('dispatch_article_click', {
+                article_title: articleTitle,
+                article_category: category,
+                link_domain: linkDomain,
+                link_url: href
+            });
+        }
+
+        // Generic external click backup
+        if (isExternalLink) {
+            trackEvent('outbound_click_custom', {
+                link_domain: linkDomain,
+                link_url: href,
+                link_text: text,
+                page_path: window.location.pathname
+            });
+        }
+    });
+
+    // -----------------------------
+    // Section view tracking
+    // -----------------------------
+    const viewedSections = new Set();
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+
+            const name = getSectionName(entry.target);
+            if (!name || viewedSections.has(name)) return;
+
+            viewedSections.add(name);
+            trackEvent('section_view', {
+                section_name: name,
+                page_path: window.location.pathname
             });
         });
-    </script>
+    }, {
+        threshold: [0.35]
+    });
+
+    document.querySelectorAll('#free-guide, #previews, #products, #services, #studio-dispatch').forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // -----------------------------
+    // Product/service impression tracking
+    // -----------------------------
+    const viewedItems = new Set();
+    const itemObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting || entry.intersectionRatio < 0.5) return;
+
+            const card = entry.target;
+            const itemType = card.classList.contains('product-card') ? 'digital_product' : 'service';
+            const item = buildItemFromCard(card, itemType);
+            if (!item) return;
+
+            if (viewedItems.has(item.item_id)) return;
+            viewedItems.add(item.item_id);
+
+            const eventPayload = {
+                item_list_name: itemType === 'digital_product' ? 'homepage_products' : 'homepage_services',
+                items: [item]
+            };
+
+            if (typeof item.price === 'number') {
+                eventPayload.currency = 'USD';
+                eventPayload.value = item.price;
+            }
+
+            trackEvent('view_item', eventPayload);
+        });
+    }, {
+        threshold: [0.5]
+    });
+
+    document.querySelectorAll('.product-card, .service-card').forEach(card => {
+        itemObserver.observe(card);
+    });
+
+    // -----------------------------
+    // Preview modal tracking
+    // -----------------------------
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('imageModalImg');
+    const modalTitle = document.getElementById('imageModalTitle');
+    const modalCounter = document.getElementById('imageModalCounter');
+    const modalClose = document.getElementById('imageModalClose');
+    const modalPrev = document.getElementById('imageModalPrev');
+    const modalNext = document.getElementById('imageModalNext');
+
+    let currentImages = [];
+    let currentIndex = 0;
+    let currentTitle = '';
+    let maxPageSeen = 0;
+
+    function renderModalImage() {
+        if (!currentImages.length) return;
+
+        modalImg.src = currentImages[currentIndex];
+        modalImg.alt = `${currentTitle} - page ${currentIndex + 1}`;
+        modalTitle.textContent = currentTitle;
+        modalCounter.textContent = `Page ${currentIndex + 1} of ${currentImages.length}`;
+
+        modalPrev.disabled = currentIndex === 0;
+        modalNext.disabled = currentIndex === currentImages.length - 1;
+
+        maxPageSeen = Math.max(maxPageSeen, currentIndex + 1);
+    }
+
+    function openPreviewModal(images, title, startIndex = 0) {
+        currentImages = images;
+        currentIndex = startIndex;
+        currentTitle = title;
+        maxPageSeen = currentIndex + 1;
+
+        renderModalImage();
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+
+        trackEvent('preview_open', {
+            preview_name: currentTitle,
+            page_number: currentIndex + 1,
+            total_pages: currentImages.length
+        });
+    }
+
+    function closePreviewModal() {
+        if (currentTitle) {
+            trackEvent('preview_close', {
+                preview_name: currentTitle,
+                last_page_seen: currentIndex + 1,
+                max_page_seen: maxPageSeen,
+                total_pages: currentImages.length
+            });
+        }
+
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        modalImg.alt = '';
+        modalTitle.textContent = '';
+        modalCounter.textContent = '';
+        currentImages = [];
+        currentIndex = 0;
+        currentTitle = '';
+        maxPageSeen = 0;
+    }
+
+    document.querySelectorAll('.preview-thumb').forEach(button => {
+        button.addEventListener('click', function () {
+            const images = (this.dataset.images || '')
+                .split('|')
+                .map(item => item.trim())
+                .filter(Boolean);
+
+            const title = this.dataset.title || 'Preview';
+            const thumbImg = this.querySelector('img');
+            const currentThumbSrc = thumbImg ? thumbImg.getAttribute('src') : '';
+            let startIndex = 0;
+
+            if (currentThumbSrc && images.length > 1) {
+                const matchedIndex = images.findIndex(img => img === currentThumbSrc);
+                if (matchedIndex >= 0) startIndex = matchedIndex;
+            }
+
+            trackEvent('preview_thumbnail_click', {
+                preview_name: title,
+                clicked_page: startIndex + 1,
+                total_pages: images.length
+            });
+
+            if (!images.length) return;
+            openPreviewModal(images, title, startIndex);
+        });
+    });
+
+    modalPrev.addEventListener('click', function () {
+        if (currentIndex > 0) {
+            currentIndex -= 1;
+            renderModalImage();
+
+            trackEvent('preview_page_change', {
+                preview_name: currentTitle,
+                direction: 'prev',
+                page_number: currentIndex + 1,
+                total_pages: currentImages.length
+            });
+        }
+    });
+
+    modalNext.addEventListener('click', function () {
+        if (currentIndex < currentImages.length - 1) {
+            currentIndex += 1;
+            renderModalImage();
+
+            trackEvent('preview_page_change', {
+                preview_name: currentTitle,
+                direction: 'next',
+                page_number: currentIndex + 1,
+                total_pages: currentImages.length
+            });
+        }
+    });
+
+    modalClose.addEventListener('click', closePreviewModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            closePreviewModal();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('open')) return;
+
+        if (e.key === 'Escape') {
+            closePreviewModal();
+        }
+
+        if (e.key === 'ArrowLeft' && currentIndex > 0) {
+            currentIndex -= 1;
+            renderModalImage();
+
+            trackEvent('preview_page_change', {
+                preview_name: currentTitle,
+                direction: 'prev',
+                page_number: currentIndex + 1,
+                total_pages: currentImages.length,
+                input_method: 'keyboard'
+            });
+        }
+
+        if (e.key === 'ArrowRight' && currentIndex < currentImages.length - 1) {
+            currentIndex += 1;
+            renderModalImage();
+
+            trackEvent('preview_page_change', {
+                preview_name: currentTitle,
+                direction: 'next',
+                page_number: currentIndex + 1,
+                total_pages: currentImages.length,
+                input_method: 'keyboard'
+            });
+        }
+    });
+</script>
 </body>
 </html>
